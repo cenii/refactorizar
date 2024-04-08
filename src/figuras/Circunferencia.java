@@ -1,24 +1,31 @@
 package figuras;
 
 public class Circunferencia {
-	private double rad;
+	private double radio;
+	private String color;
 
 	public Circunferencia(double radio) {
-		this.rad = radio;
+		this.radio = radio;
 	}
 
 	public void imprimir() {
-		String color = "rojo";
-		System.out.println("Di�metro: " + 2 * rad);
+		color = "rojo";
+		System.out.println("Di�metro: " + (2 * radio));
 		System.out.println("Color: " + color);
-		double area = 2 * 3.1416 * rad * rad;
+		double area1 = 2 * 3.1416 * radio * radio;
+		double area = area1;
 		System.out.println(area);
 	}
 
-	public boolean esIgual(Circunferencia otro, boolean conDecimales) {
-		double radio1 = this.rad;
+	private double calcularArea() {
+		double area = 2 * 3.1416 * radio * radio;
+		return area;
+	}
+
+	public boolean esIgual(Circunferencia otro, boolean considerarDecimales) {
+		double radio1 = this.radio;
 		double radio2 = otro.getRad();
-		if (conDecimales) {
+		if (considerarDecimales) {
 			if (radio1 == radio2)
 				return true;
 			else
@@ -32,10 +39,10 @@ public class Circunferencia {
 	}
 
 	public double getRad() {
-		return rad;
+		return radio;
 	}
 
 	public void setRad(double rad) {
-		this.rad = rad;
+		this.radio = rad;
 	}
 }
